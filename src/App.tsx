@@ -20,7 +20,7 @@ import javascript from "./assets/skills/java-script.png";
 import php from "./assets/skills/php.png";
 import xml from "./assets/skills/xml.png";
 
-import kulture from "./assets/images/projects/kulture.jpg";
+import kulture from "./assets/images/projects/Kulture.jpg";
 import carebridge from "./assets/images/projects/carebridge.jpg";
 
 import kulture1 from "./assets/images/projects/kulture/1.jpg";
