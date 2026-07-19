@@ -53,6 +53,7 @@ import {
 function App() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [currentImage, setCurrentImage] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
 const kultureImages = [
   kulture1,
@@ -73,64 +74,117 @@ const carebridgeImages = [
 ];
   return (
     <>
-      {/* HERO SECTION */}
-      <section className="hero" id="home">
-        <div className="hero-left">
-          <div className="hero-content">
-            <p className="greeting">Hi, I am</p>
+      {/* NAVBAR */}
+<nav className="navbar">
 
-            <h1>John Mikhail F. Lorenzo</h1>
+  <button
+    className="menu-toggle"
+    onClick={() => setMenuOpen(!menuOpen)}
+    aria-label="Toggle navigation"
+  >
+    ☰
+  </button>
 
-            <h2>
-              Front-End Developer
-              <br />
-              Mobile Application Developer
-            </h2>
+  <div className={`nav-links ${menuOpen ? "active" : ""}`}>
 
-            <div className="socials">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=miko.lorenzo2327@gmail.com">
-                <img src={gmail} alt="gmail" />
-              </a>
+    <a href="#about" onClick={() => setMenuOpen(false)}>
+      About Me
+    </a>
 
-              <a
-                href="https://www.facebook.com/miko.lorenzo23"
-                target="_blank"
-              >
-                <img src={facebook} alt="facebook" />
-              </a>
+    <a href="#skills" onClick={() => setMenuOpen(false)}>
+      Skills
+    </a>
 
-              <a
-                href="https://www.linkedin.com/in/john-mikhail-lorenzo-41965b36a/"
-                target="_blank"
-              >
-                <img src={linkedin} alt="linkedin" />
-              </a>
-            </div>
-          </div>
-        </div>
+    <a href="#portfolio" onClick={() => setMenuOpen(false)}>
+      Portfolio
+    </a>
 
-        <div className="hero-right">
-          <nav className="navbar">
-            <a href="#about">About Me</a>
-            <a href="#skills">Skills</a>
-            <a href="#portfolio">Portfolio</a>
+    <a
+      className="cv-btn"
+      href="/John_Mikhail_Lorenzo_Resume.pdf"
+      download
+      onClick={() => setMenuOpen(false)}
+    >
+      Download CV
+    </a>
 
-            <a
-              className="cv-btn"
-              href="/John_Mikhail_Lorenzo_Resume.pdf"
-              download
-            >
-              Download CV
-            </a>
-          </nav>
+  </div>
 
+</nav>
+
+{/* HERO SECTION */}
+
+<section
+  className="hero"
+  id="home"
+>
+
+  <div className="hero-left">
+
+    <div className="hero-content">
+
+      <p className="greeting">
+        Hi, I am
+      </p>
+
+      <h1>
+        John Mikhail F. Lorenzo
+      </h1>
+
+      <h2>
+        Front-End Developer
+        <br />
+        Mobile Application Developer
+      </h2>
+
+      <div className="socials">
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=miko.lorenzo2327@gmail.com">
           <img
-  src={gradPic}
-  alt="Graduation Picture"
-  className="hero-image"
-/>
-        </div>
-      </section>
+            src={gmail}
+            alt="gmail"
+          />
+        </a>
+
+        <a
+          href="https://www.facebook.com/miko.lorenzo23"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={facebook}
+            alt="facebook"
+          />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/john-mikhail-lorenzo-41965b36a/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={linkedin}
+            alt="linkedin"
+          />
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div className="hero-right">
+
+    <img
+      src={gradPic}
+      alt="Graduation Picture"
+      className="hero-image"
+    />
+
+  </div>
+
+</section>
 
       {/* ABOUT */}
       <section className="section" id="about">
