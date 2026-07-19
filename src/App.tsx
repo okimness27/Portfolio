@@ -102,7 +102,7 @@ const carebridgeImages = [
     <a
       className="cv-btn"
       href="/John_Mikhail_Lorenzo_Resume.pdf"
-      download
+      download = "John_Mikhail_Lorenzo_Resume.pdf"
       onClick={() => setMenuOpen(false)}
     >
       Download CV
@@ -623,7 +623,7 @@ const carebridgeImages = [
 
       <a
         href="/John_Mikhail_Lorenzo_Resume.pdf"
-        download
+        download = "John_Mikhail_Lorenzo_Resume.pdf"
         className="btn btn-primary"
       >
         <FaDownload />
