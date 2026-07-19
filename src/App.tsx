@@ -338,21 +338,40 @@ const carebridgeImages = [
 </section>
 
       {/* EXPERIENCE */}
-      <section className="section">
-        <h2 className="section-title">EDUCATION & EXPERIENCE</h2>
+<section className="section">
+  <h2 className="section-title">EDUCATION & EXPERIENCE</h2>
 
-        <div className="timeline-card">
-          <h3>Technological Institute of the Philippines</h3>
-          <p>Bachelor of Science in Information Technology</p>
-          <span>2021 - 2025</span>
-        </div>
+  {/* EDUCATION */}
+  <div className="timeline-card">
+    <h3>Technological Institute of the Philippines</h3>
+    <p className="job-title">Bachelor of Science in Information Technology</p>
+    <span>2021 - 2025</span>
 
-        <div className="timeline-card">
-          <h3>Consolidated Matrix Inc.</h3>
-          <p>Front-End Developer Intern</p>
-          <span>500 Hours OJT</span>
-        </div>
-      </section>
+    <p className="experience-description">
+      Graduated with a <strong>Bachelor of Science in Information Technology</strong>.
+      Completed coursework in software development, mobile application development,
+      web development, database management, and systems analysis. Developed the
+      capstone project <strong>Kulture</strong>, a 3D mobile learning application
+      built with <strong>Unity</strong>.
+    </p>
+  </div>
+
+  {/* EXPERIENCE */}
+  <div className="timeline-card">
+    <h3>Consolidated Matrix Inc.</h3>
+    <p className="job-title">Front-End Developer Intern</p>
+    <span>500-Hour Internship</span>
+
+    <p className="experience-description">
+      Developed and maintained mobile applications using
+      <strong> React Native CLI</strong> and <strong>TypeScript</strong>.
+      <br /><br />
+      Fixed frontend bugs, implemented responsive and reusable UI components,
+      integrated APIs, and collaborated with the development team using
+      <strong> Git</strong>.
+    </p>
+  </div>
+</section>
 
       {/* PORTFOLIO */}
 <section className="section" id="portfolio">

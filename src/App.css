@@ -275,6 +275,7 @@ body {
 }
 
 /* TIMELINE */
+/* TIMELINE */
 .timeline-card {
   max-width: 800px;
   margin: 20px auto;
@@ -288,8 +289,30 @@ body {
 }
 
 .timeline-card span {
+  display: block;
+  margin-top: 5px;
   color: gray;
+  font-style: italic;
 }
+
+/* NEW */
+.job-title {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.experience-description {
+  margin-top: 30px;
+  font-style: italic;
+  line-height: 1.8;
+  color: #555;
+}
+
+.experience-description strong {
+  color: #000;
+  font-weight: 700;
+}
+
 
 /* ==========================================
    PORTFOLIO
