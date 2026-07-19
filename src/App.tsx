@@ -365,7 +365,6 @@ const carebridgeImages = [
     <p className="experience-description">
       Developed and maintained mobile applications using
       <strong> React Native CLI</strong> and <strong>TypeScript</strong>.
-      <br /><br />
       Fixed frontend bugs, implemented responsive and reusable UI components,
       integrated APIs, and collaborated with the development team using
       <strong> Git</strong>.
