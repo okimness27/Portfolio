@@ -4,6 +4,13 @@ import gradPic from "./assets/images/GradPic.png";
 import gmail from "./assets/images/gmail.png";
 import facebook from "./assets/images/facebook.png";
 import linkedin from "./assets/images/linkedin.png";
+import diploma from "./assets/documents/diploma.png";
+import abetAccreditation from "./assets/documents/abet-accreditation.png";
+import cmiCertificate from "./assets/documents/cmi-certificate.png";
+
+import contactPhone from "./assets/images/contact/phone.png";
+import contactLocation from "./assets/images/contact/location.png";
+import contactGithub from "./assets/images/contact/github.png";
 
 import typescript from "./assets/skills/typescript.png";
 import csharp from "./assets/skills/c-sharp.png";
@@ -21,7 +28,8 @@ import php from "./assets/skills/php.png";
 import xml from "./assets/skills/xml.png";
 
 import kulture from "./assets/images/projects/Kulture.jpg";
-import carebridge from "./assets/images/projects/carebridge.jpg";
+import carebridge from "./assets/images/projects/CareBridge.png";
+import enrollment from "./assets/images/projects/Enrollment.png";
 
 import kulture1 from "./assets/images/projects/kulture/1.jpg";
 import kulture2 from "./assets/images/projects/kulture/2.jpg";
@@ -37,23 +45,112 @@ import care2 from "./assets/images/projects/carebridge/2.png";
 import care3 from "./assets/images/projects/carebridge/3.png";
 import care4 from "./assets/images/projects/carebridge/4.png";
 import care5 from "./assets/images/projects/carebridge/5.png";
+import care6 from "./assets/images/projects/carebridge/6.png";
+import care7 from "./assets/images/projects/carebridge/7.png";
+
+import enrollment1 from "./assets/images/projects/enrollment/1.png";
+import enrollment2 from "./assets/images/projects/enrollment/2.png";
+import enrollment3 from "./assets/images/projects/enrollment/3.png";
+import enrollment4 from "./assets/images/projects/enrollment/4.png";
+import enrollment5 from "./assets/images/projects/enrollment/5.png";
+import enrollment6 from "./assets/images/projects/enrollment/6.png";
+import enrollment7 from "./assets/images/projects/enrollment/7.png";
+
+import student1 from "./assets/images/projects/enrollment/student1.png";
+import student2 from "./assets/images/projects/enrollment/student2.png";
+import student3 from "./assets/images/projects/enrollment/student3.png";
+
+import admin1 from "./assets/images/projects/enrollment/admin1.png";
+import admin2 from "./assets/images/projects/enrollment/admin2.png";
+import admin3 from "./assets/images/projects/enrollment/admin3.png";
+import admin4 from "./assets/images/projects/enrollment/admin4.png";
+import admin5 from "./assets/images/projects/enrollment/admin5.png";
+
+import buildingCyberResilience from "./assets/images/certifications/building-cyber-resilience.png";
+import cybersecurityBuff from "./assets/images/certifications/cybersecurity-buff.png";
+import raspberryPi from "./assets/images/certifications/raspberryPi.png";
+
+
 
 import {
   FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-  FaLinkedin,
   FaGithub,
-  FaFacebookF,
   FaDownload,
 } from "react-icons/fa";
 
 
 
+
+type ScreenshotGalleryProps = {
+  title: string;
+  images: string[];
+  alt: string;
+};
+
+function ScreenshotGallery({
+  title,
+  images,
+  alt,
+}: ScreenshotGalleryProps) {
+  const [imageIndex, setImageIndex] = useState(0);
+
+  return (
+    <div className="enrollment-gallery-section">
+      <div className="enrollment-gallery-header">
+        <h3>{title}</h3>
+        <span>
+          {imageIndex + 1} / {images.length}
+        </span>
+      </div>
+
+      <div className="gallery">
+        <div className="gallery-image-container">
+          <img
+            src={images[imageIndex]}
+            className="gallery-image"
+            alt={`${alt} screenshot ${imageIndex + 1}`}
+          />
+
+          {images.length > 1 && (
+            <>
+              <button
+                className="gallery-btn gallery-prev"
+                onClick={() =>
+                  setImageIndex((prev) =>
+                    prev === 0 ? images.length - 1 : prev - 1
+                  )
+                  }
+                aria-label={`Previous ${title} screenshot`}
+              >
+                ❮
+              </button>
+
+              <button
+                className="gallery-btn gallery-next"
+                onClick={() =>
+                  setImageIndex((prev) =>
+                    prev === images.length - 1 ? 0 : prev + 1
+                  )
+                  }
+                aria-label={`Next ${title} screenshot`}
+              >
+                ❯
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
-  const [selectedProject, setSelectedProject] = useState<string | null>(null);
-  const [currentImage, setCurrentImage] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(false);
+const [selectedProject, setSelectedProject] = useState<string | null>(null);
+const [currentImage, setCurrentImage] = useState(0);
+const [menuOpen, setMenuOpen] = useState(false);
+const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
+const [selectedDocument, setSelectedDocument] = useState<string | null>(null);
+const [educationDocumentIndex, setEducationDocumentIndex] = useState(0);
 
 const kultureImages = [
   kulture1,
@@ -71,6 +168,32 @@ const carebridgeImages = [
   care3,
   care4,
   care5,
+  care6,
+  care7,
+];
+
+const enrollmentMainImages = [
+  enrollment1,
+  enrollment2,
+  enrollment3,
+  enrollment4,
+  enrollment5,
+  enrollment6,
+  enrollment7,
+];
+
+const enrollmentStudentImages = [
+  student1,
+  student2,
+  student3,
+];
+
+const enrollmentAdminImages = [
+  admin1,
+  admin2,
+  admin3,
+  admin4,
+  admin5,
 ];
   return (
     <>
@@ -191,10 +314,9 @@ const carebridgeImages = [
         <h2 className="section-title">ABOUT ME</h2>
 
         <p className="about-text">
-          Recent Information Technology graduate with experience in React
-          Native development, UI design, and mobile application development.
-          Passionate about building user-friendly and efficient applications
-          while continuously learning modern technologies.
+          As a recent Information Technology graduate, I am seeking an entry-level opportunity where I can apply my technical
+          knowledge, problem-solving skills, and experience in software development. I am eager to learn, grow professionally,
+          and contribute to the organization while developing my skills in the field of Information Technology  
         </p>
 
         <div className="services">
@@ -342,7 +464,13 @@ const carebridgeImages = [
   <h2 className="section-title">EDUCATION & EXPERIENCE</h2>
 
   {/* EDUCATION */}
-  <div className="timeline-card">
+  <div
+  className="timeline-card document-card"
+  onClick={() => {
+    setSelectedDocument("education");
+    setEducationDocumentIndex(0);
+  }}
+>
     <h3>Technological Institute of the Philippines</h3>
     <p className="job-title">Bachelor of Science in Information Technology</p>
     <span>2021 - 2025</span>
@@ -357,7 +485,10 @@ const carebridgeImages = [
   </div>
 
   {/* EXPERIENCE */}
-  <div className="timeline-card">
+ <div
+  className="timeline-card document-card"
+  onClick={() => setSelectedDocument("cmi")}
+>
     <h3>Consolidated Matrix Inc.</h3>
     <p className="job-title">Front-End Developer Intern</p>
     <span>500-Hour Internship</span>
@@ -374,13 +505,14 @@ const carebridgeImages = [
 
       {/* PORTFOLIO */}
 <section className="section" id="portfolio">
-  <h2 className="section-title">PORTFOLIO</h2>
+  <h2 className="section-title">PROJECTS</h2>
 
   <div className="portfolio-grid">
 
     {/* Kulture */}
 <div
   className="project-card"
+  data-number="1"
   onClick={() => setSelectedProject("kulture")}
 >
   <div className="project-image">
@@ -438,6 +570,7 @@ const carebridgeImages = [
 <div
 
   className="project-card"
+  data-number="2"
   onClick={() => setSelectedProject("carebridge")}
 >
   <div className="project-image">
@@ -503,23 +636,122 @@ const carebridgeImages = [
   </div>
 </div>
 
+    {/* Student Enrollment / Management System */}
+    <div
+      className="project-card"
+      data-number="3"
+      onClick={() => setSelectedProject("enrollment")}
+    >
+      <div className="project-image"> <img src={enrollment} alt="Student Enrollment System" /> </div>
+
+      <div className="project-content">
+        <span className="project-type">
+          PERSONAL FULL-STACK PROJECT
+        </span>
+
+        <h3>Student Enrollment System</h3>
+
+        <p>
+          A full-stack student enrollment and management system with separate
+          student and administrator portals, authentication, enrollment
+          functionality, and CRUD-based data management.
+        </p>
+
+        <div className="project-tech">
+          <span>React</span>
+          <span>TypeScript</span>
+          <span>Express.js</span>
+          <span>MySQL</span>
+        </div>
+
+        <div className="project-buttons">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(
+                "https://github.com/okimness27/student-management-system",
+                "_blank"
+              );
+            }}
+          >
+            GitHub
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedProject("enrollment");
+              setCurrentImage(0);
+            }}
+          >
+            Case Study
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-      {/* CERTIFICATIONS */}
-      <section className="section">
-        <h2 className="section-title">CERTIFICATIONS & SEMINARS</h2>
+     {/* CERTIFICATIONS */}
+<section className="section">
+  <h2 className="section-title">CERTIFICATIONS & SEMINARS</h2>
 
-        <div className="timeline-card">
-          <h3>Building Cyber Resilience</h3>
-          <p>UST Frassati Building Auditorium</p>
-        </div>
+  <div className="certifications-list">
 
-        <div className="timeline-card">
-          <h3>Cybersecurity Buff</h3>
-          <p>SQL Injection & Brute Force Defense</p>
-        </div>
-      </section>
+    <button
+      className="certificate-card"
+      onClick={() => setSelectedCertificate("building")}
+    >
+      <div className="certificate-number">01</div>
+
+      <div className="certificate-info">
+        <span>SEMINAR</span>
+        <h3>Building Cyber Resilience</h3>
+        <p>UST Frassati Building Auditorium</p>
+      </div>
+
+      <div className="certificate-arrow">
+        ↗
+      </div>
+    </button>
+
+    <button
+      className="certificate-card"
+      onClick={() => setSelectedCertificate("cybersecurity")}
+    >
+      <div className="certificate-number">02</div>
+
+      <div className="certificate-info">
+        <span>SEMINAR</span>
+        <h3>Cybersecurity Buff</h3>
+        <p>SQL Injection & Brute Force Defense</p>
+      </div>
+
+      <div className="certificate-arrow">
+        ↗
+      </div>
+    </button>
+
+    <button
+  className="certificate-card"
+  onClick={() => setSelectedCertificate("raspberryPi")}
+>
+  <div className="certificate-number">03</div>
+
+  <div className="certificate-info">
+    <span>Seminar</span>
+    <h3>Breaking Down YOLOv8: The Ultimate Guide with Roboflow Integration on Raspberry Pi</h3>
+    <p>University of Caloocan City</p>
+  </div>
+
+  <div className="certificate-arrow">
+    ↗
+  </div>
+</button>
+
+  </div>
+</section>
 
       {/* CONTACT */}
 <section id="contact" className="contact">
@@ -544,12 +776,12 @@ const carebridgeImages = [
 
       {/* Email */}
       <a
-        href="mailto:miko.lorenzo2327@gmail.com"
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=miko.lorenzo2327@gmail.com"
         className="contact-card"
       >
         <div className="contact-icon">
-          <FaEnvelope />
-        </div>
+  <img src={gmail} alt="Email" />
+</div>
 
         <div>
           <h4>Email</h4>
@@ -557,14 +789,16 @@ const carebridgeImages = [
         </div>
       </a>
 
+      
+
       {/* Phone */}
       <a
         href="tel:09107532700"
         className="contact-card"
       >
         <div className="contact-icon">
-          <FaPhoneAlt />
-        </div>
+  <img src={contactPhone} alt="Phone" />
+</div>
 
         <div>
           <h4>Phone</h4>
@@ -575,8 +809,8 @@ const carebridgeImages = [
       {/* Location */}
       <div className="contact-card">
         <div className="contact-icon">
-          <FaMapMarkerAlt />
-        </div>
+  <img src={contactLocation} alt="Location" />
+</div>
 
         <div>
           <h4>Location</h4>
@@ -592,8 +826,8 @@ const carebridgeImages = [
         className="contact-card"
       >
         <div className="contact-icon">
-          <FaLinkedin />
-        </div>
+  <img src={linkedin} alt="LinkedIn" />
+</div>
 
         <div>
           <h4>LinkedIn</h4>
@@ -609,8 +843,8 @@ const carebridgeImages = [
         className="contact-card"
       >
         <div className="contact-icon">
-          <FaGithub />
-        </div>
+  <img src={contactGithub} alt="GitHub" />
+</div>
 
         <div>
           <h4>GitHub</h4>
@@ -626,8 +860,8 @@ const carebridgeImages = [
         className="contact-card"
       >
         <div className="contact-icon">
-          <FaFacebookF />
-        </div>
+  <img src={facebook} alt="Facebook" />
+</div>
 
         <div>
           <h4>Facebook</h4>
@@ -648,8 +882,7 @@ const carebridgeImages = [
         <span>Download Resume</span>
       </a>
 
-      <a
-  href="https://mail.google.com/mail/?view=cm&to=miko.lorenzo2327@gmail.com"
+      <a href="https://mail.google.com/mail/?view=cm&to=miko.lorenzo2327@gmail.com"
   target="_blank"
   rel="noopener noreferrer"
   className="btn btn-secondary"
@@ -657,6 +890,7 @@ const carebridgeImages = [
   <FaEnvelope />
   <span>Email Me</span>
 </a>
+
 
     </div>
   </div>
@@ -1041,6 +1275,377 @@ const carebridgeImages = [
 
   </div>
 )}
+
+      {/* ================= STUDENT ENROLLMENT SYSTEM ================= */}
+
+      {selectedProject === "enrollment" && (
+        <div className="case-study">
+
+          <div className="case-header">
+            <h2>STUDENT ENROLLMENT SYSTEM</h2>
+
+            <p>
+              A full-stack student enrollment and management system with
+              dedicated student and administrator portals.
+            </p>
+
+            <div className="project-tags">
+              <span>Personal Project</span>
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Vite</span>
+              <span>Express.js</span>
+              <span>MySQL</span>
+            </div>
+          </div>
+
+          <ScreenshotGallery
+            title="Main Website"
+            images={enrollmentMainImages}
+            alt="Student Enrollment System main website"
+          />
+
+          <ScreenshotGallery
+            title="Student Portal"
+            images={enrollmentStudentImages}
+            alt="Student Enrollment System student portal"
+          />
+
+          <ScreenshotGallery
+            title="Admin Dashboard"
+            images={enrollmentAdminImages}
+            alt="Student Enrollment System admin dashboard"
+          />
+
+           <div className="project-snapshot">
+
+            <div className="snapshot-card">
+              <h4>Role</h4>
+              <p>Solo Full-Stack Developer</p>
+            </div>
+
+            <div className="snapshot-card">
+              <h4>Frontend</h4>
+              <p>React + Vite</p>
+            </div>
+
+            <div className="snapshot-card">
+              <h4>Language</h4>
+              <p>TypeScript</p>
+            </div>
+
+            <div className="snapshot-card">
+              <h4>Backend</h4>
+              <p>Express.js</p>
+            </div>
+
+            <div className="snapshot-card">
+              <h4>Database</h4>
+              <p>MySQL / XAMPP</p>
+            </div>
+
+          </div>
+
+          <div className="case-section">
+            <h3>About the Project</h3>
+
+            <p>
+              The Student Enrollment System is a personal full-stack project
+              designed to demonstrate end-to-end web development skills.
+              It provides a public school website, a student portal, and an
+              administrator dashboard for managing enrollment-related data.
+            </p>
+
+            <p>
+              The application uses React and Vite for the frontend,
+              Express.js for the backend, and MySQL through XAMPP for
+              persistent data storage.
+            </p>
+          </div>
+
+          <div className="case-section">
+            <h3>System Overview</h3>
+
+            <div className="system-flow">
+              <div className="system-flow-card">
+                <span>01</span>
+                <strong>Public Website</strong>
+                <p>
+                  Provides the main school website and entry points for
+                  registration and enrollment.
+                </p>
+              </div>
+
+              <div className="system-flow-arrow">→</div>
+
+              <div className="system-flow-card">
+                <span>02</span>
+                <strong>Student Portal</strong>
+                <p>
+                  Provides students with a dedicated portal for accessing
+                  enrollment-related functionality.
+                </p>
+              </div>
+
+              <div className="system-flow-arrow">→</div>
+
+              <div className="system-flow-card">
+                <span>03</span>
+                <strong>Admin Dashboard</strong>
+                <p>
+                  Provides administrators with tools for managing system data
+                  and enrollment operations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="case-section">
+            <h3>Key Features</h3>
+
+            <div className="feature-grid">
+
+              <div className="feature-card">
+                🔐 User Authentication
+              </div>
+
+              <div className="feature-card">
+                📝 Student Registration & Enrollment
+              </div>
+
+              <div className="feature-card">
+                👨‍🎓 Student Portal
+              </div>
+
+              <div className="feature-card">
+                🛠️ Administrator Dashboard
+              </div>
+
+              <div className="feature-card">
+                🔄 CRUD Operations
+              </div>
+
+              <div className="feature-card">
+                🗄️ MySQL Database Integration
+              </div>
+
+            </div>
+          </div>
+
+          <div className="case-section">
+            <h3>Technologies Used</h3>
+
+            <div className="tech-badges">
+              <span>React</span>
+              <span>Vite</span>
+              <span>TypeScript</span>
+              <span>Express.js</span>
+              <span>MySQL</span>
+              <span>XAMPP</span>
+              <span>Git</span>
+              <span>GitHub</span>
+            </div>
+          </div>
+
+          <div className="case-section">
+            <h3>My Contributions</h3>
+
+            <ul>
+              <li>
+                Designed and developed the frontend using React, Vite, and
+                TypeScript.
+              </li>
+              <li>
+                Developed the backend using Express.js and connected it to
+                the MySQL database.
+              </li>
+              <li>
+                Implemented CRUD functionality for managing application data.
+              </li>
+              <li>
+                Built separate student and administrator interfaces.
+              </li>
+              <li>
+                Integrated the frontend with backend API endpoints.
+              </li>
+              <li>
+                Managed the project source code using Git and GitHub.
+              </li>
+            </ul>
+          </div>
+
+          <div className="case-section">
+            <h3>Project Repository</h3>
+
+            <div className="case-action">
+              <a
+                href="https://github.com/okimness27/student-management-system"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="case-github-button"
+              >
+                <FaGithub />
+                View on GitHub
+              </a>
+            </div>
+          </div>
+
+        </div>
+      )}
+
+    </div>
+  </div>
+)}
+
+{/* CERTIFICATE MODAL */}
+
+{selectedCertificate && (
+  <div
+    className="certificate-overlay"
+    onClick={() => setSelectedCertificate(null)}
+  >
+    <div
+      className="certificate-modal"
+      onClick={(e) => e.stopPropagation()}
+    >
+
+      <button
+        className="certificate-close"
+        onClick={() => setSelectedCertificate(null)}
+        aria-label="Close certificate"
+      >
+        ✕
+      </button>
+
+      {selectedCertificate === "building" && (
+        <div className="certificate-viewer">
+          <p className="certificate-label">
+            BUILDING CYBER RESILIENCE
+          </p>
+
+          <img
+            src={buildingCyberResilience}
+            alt="Building Cyber Resilience Certificate"
+          />
+        </div>
+      )}
+
+      {selectedCertificate === "cybersecurity" && (
+        <div className="certificate-viewer">
+          <p className="certificate-label">
+            CYBERSECURITY BUFF
+          </p>
+
+          <img
+            src={cybersecurityBuff}
+            alt="Cybersecurity Buff Certificate"
+          />
+        </div>
+      )}
+
+      {selectedCertificate === "raspberryPi" && (
+  <div className="certificate-viewer">
+    <p className="certificate-label">
+      RASPBERRY PI CERTIFICATE
+    </p>
+
+    <img
+      src={raspberryPi}
+      alt="Raspberry Pi Certificate"
+    />
+  </div>
+)}
+
+    </div>
+  </div>
+)}
+
+{/* EDUCATION & EXPERIENCE DOCUMENT MODAL */}
+
+{selectedDocument && (
+  <div
+    className="certificate-overlay"
+    onClick={() => setSelectedDocument(null)}
+  >
+    <div
+  className="document-modal"
+  onClick={(e) => e.stopPropagation()}
+>
+      <button
+        className="certificate-close"
+        onClick={() => setSelectedDocument(null)}
+        aria-label="Close document"
+      >
+        ✕
+      </button>
+
+      {/* EDUCATION DOCUMENTS */}
+      {selectedDocument === "education" && (
+        <div className="certificate-viewer">
+
+          <p className="certificate-label">
+            {educationDocumentIndex === 0
+              ? "BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY — DIPLOMA"
+              : "ABET COMPUTING ACCREDITATION COMMISSION"}
+          </p>
+
+          {educationDocumentIndex === 0 ? (
+            <img
+              src={diploma}
+              alt="Bachelor of Science in Information Technology Diploma"
+            />
+          ) : (
+            <img
+              src={abetAccreditation}
+              alt="ABET Computing Accreditation Commission Document"
+            />
+          )}
+
+          <div className="document-navigation">
+
+            <button
+              onClick={() =>
+                setEducationDocumentIndex((prev) =>
+                  prev === 0 ? 1 : 0
+                )
+              }
+            >
+              ← Previous
+            </button>
+
+            <span>
+              {educationDocumentIndex + 1} / 2
+            </span>
+
+            <button
+              onClick={() =>
+                setEducationDocumentIndex((prev) =>
+                  prev === 1 ? 0 : 1
+                )
+              }
+            >
+              Next →
+            </button>
+
+          </div>
+        </div>
+      )}
+
+      {/* EXPERIENCE DOCUMENT */}
+      {selectedDocument === "cmi" && (
+        <div className="certificate-viewer">
+
+          <p className="certificate-label">
+            CONSOLIDATED MATRIX INC. — INTERNSHIP CERTIFICATE
+          </p>
+
+          <img
+            src={cmiCertificate}
+            alt="Consolidated Matrix Inc. Internship Certificate"
+          />
+
+        </div>
+      )}
 
     </div>
   </div>
