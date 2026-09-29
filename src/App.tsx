@@ -28,7 +28,7 @@ import php from "./assets/skills/php.png";
 import xml from "./assets/skills/xml.png";
 
 import kulture from "./assets/images/projects/Kulture.jpg";
-import carebridge from "./assets/images/projects/CareBridge.png";
+import carebridge from "./assets/images/projects/Carebridge.png";
 import enrollment from "./assets/images/projects/Enrollment.png";
 
 import kulture1 from "./assets/images/projects/kulture/1.jpg";
