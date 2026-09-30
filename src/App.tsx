@@ -684,7 +684,7 @@ const enrollmentAdminImages = [
               setCurrentImage(0);
             }}
           >
-            Case Study
+            View Details
           </button>
         </div>
       </div>
